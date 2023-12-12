@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8081:8081
-    restart: on-failure
+    restart: unless-stopped
     environment:
       DB_URL: jdbc:mysql://mysql/ssd_db
       DB_USERNAME: ${MYSQL_USER}
@@ -19,18 +19,19 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8082:8082
-    restart: on-failure
+    restart: unless-stopped
     environment:
       DB_URL: jdbc:mysql://mysql/ssd_db
       DB_USERNAME: ${MYSQL_USER}
       DB_PASSWORD: ${MYSQL_PASSWORD}
     depends_on:
       - mysql
+      - back-end
   front-end:
     build:
       context: ./front-end  
       dockerfile: Dockerfile
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - 80:80
       - 443:443
@@ -41,7 +42,7 @@ services:
   vault:
     hostname: vault
     container_name: vault
-    restart: on-failure
+    restart: unless-stopped
     image: vault:1.13.3
     environment:
       VAULT_ADDR: "http://0.0.0.0:8200"
@@ -61,7 +62,7 @@ services:
   vault-init:
     container_name: vault-init
     image: vault:1.13.3
-    restart: on-failure
+    restart: "no"
     environment:
       VAULT_ADDR: "http://vault:8200"
     volumes:
@@ -72,7 +73,7 @@ services:
   keycloak:
     image: jboss/keycloak:15.0.2
     container_name: mykeycloak
-    restart: on-failure
+    restart: unless-stopped
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
@@ -97,7 +98,8 @@ services:
   mysql:
     image: mysql:8.0.28
     container_name: mysql
-    restart: on-failure
+    restart: unless-stopped
+    command: --lower_case_table_names=1
     environment:
       - MYSQL_DATABASE=ssd_db
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
