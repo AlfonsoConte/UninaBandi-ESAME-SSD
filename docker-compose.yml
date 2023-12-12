@@ -101,7 +101,7 @@ services:
       restart: on-failure
       environment:
         - MYSQL_DATABASE=ssd_db
-        - MYSQL_ROOT_PASSWOR=${MYSQL_ROOT_PASSWORD}
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       volumes:
         - ./mysql:/var/lib/mysql
 
