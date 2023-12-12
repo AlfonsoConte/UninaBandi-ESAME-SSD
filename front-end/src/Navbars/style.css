@@ -1,0 +1,11 @@
+@media (min-width: 1000px) {
+  .navstyle {
+    margin-left: 35rem;
+  }
+}
+@media (max-width: 1000px) {
+  .navstyle {
+    display: grid;
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ssdexam.SSDApp.SsdApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.978 s - in com.ssdexam.SSDApp.SsdApplicationTests
