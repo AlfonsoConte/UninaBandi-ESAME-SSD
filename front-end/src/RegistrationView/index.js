@@ -133,12 +133,14 @@ const RegistrationView = () => {
   };
 
   const RegisterUser = () => {
-    console.log(user);
+    
     if (user.badgeNumber === "") {
       setUser({ ...user, badgeNumber: "0000000000" });
     } else if (user.matricola === "") {
       setUser({ ...user, matricola: "M00000000" });
     }
+
+    console.log(user);
 
     fetch(`/api/guest/register/${captchaRef.current.getValue()}`, {
       headers: {

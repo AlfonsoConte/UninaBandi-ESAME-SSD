@@ -10,7 +10,7 @@ const Signin = () => {
 
   useEffect(() => {
     if (!keycloak.authenticated) {
-      keycloak.login({ redirectUri: "http://localhost/home" });
+      keycloak.login({ redirectUri: "https://bandiunina.it/home" });
     }
   }, [keycloak]);
 

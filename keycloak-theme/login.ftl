@@ -90,7 +90,7 @@
             <div id="kc-registration-container">
                 <div id="kc-registration">
                     <span>${msg("noAccount")} <a tabindex="6"
-                                                 href="http://localhost:80/signup">${msg("doRegister")}</a></span>
+                                                 href="https://bandiunina.it/signup">${msg("doRegister")}</a></span>
                 </div>
             </div>
                         
