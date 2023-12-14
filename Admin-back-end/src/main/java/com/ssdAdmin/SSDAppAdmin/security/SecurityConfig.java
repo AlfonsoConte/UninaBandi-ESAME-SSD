@@ -43,7 +43,7 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
     final static String clientId="application-rest-api";
     
     final static String userName = "admin";
-    final static String password = "admin";
+    final static String password = "Amministrazione1@";
     
     
     public static Keycloak getInstance(){

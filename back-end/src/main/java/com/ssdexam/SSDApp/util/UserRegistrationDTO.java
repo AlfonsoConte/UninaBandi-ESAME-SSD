@@ -12,9 +12,7 @@ public class UserRegistrationDTO {
 	@NotEmpty
 	@Size(max = 64)
     private String userName;
-	@NotNull
-	@NotEmpty
-	@Pattern(regexp="^[A-Z][0-9]{8}$")
+	@Pattern(regexp="^[A-Z][0-9]{8}|^$")
 	@Size(max = 9)
     private String matricola;
 	@NotNull
@@ -43,10 +41,8 @@ public class UserRegistrationDTO {
     @NotEmpty
     @Size(min = 8, max = 64)
     private String password;
-	@NotNull
-	@NotEmpty
 	@Size(max = 10)
-	@Pattern(regexp="^[0-9]{10}$")
+	@Pattern(regexp="^[0-9]{10}|^$")
     private String badgeNumber;
 	@NotNull
 	@NotEmpty

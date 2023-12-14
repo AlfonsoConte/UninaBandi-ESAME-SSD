@@ -24,7 +24,8 @@ import com.ssdexam.SSDApp.service.SupervisorService;
 import com.ssdexam.SSDApp.util.TokenUtil;
 
 @RestController
-@CrossOrigin(origins ="http://127.0.0.1:80", allowCredentials="true")
+
+
 @RequestMapping("/api/callForApplications")
 public class CallForApplicationController{
 	

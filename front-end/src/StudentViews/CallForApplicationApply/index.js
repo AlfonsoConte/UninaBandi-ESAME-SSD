@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import { Card, Col, Row } from "react-bootstrap";
+import { Alert, Card, Col, Container, Row } from "react-bootstrap";
 
 import KeycloakContext from "../../KeycloakContext";
 
 const CallForApplicationApply = () => {
   const keycloak = useContext(KeycloakContext);
   const jwt = keycloak.token;
-  const [callForApplications, setCallForApplications] = useState(null);
+  const [callForApplications, setCallForApplications] = useState("");
 
   useEffect(() => {
     fetch(`api/callForApplications/student/getAll`, {
@@ -33,7 +33,7 @@ const CallForApplicationApply = () => {
         marginTop: "5em",
       }}
     >
-      {callForApplications ? (
+      {callForApplications.length !== 0 ?  (
         <div
           className="d-grid gap-5"
           style={{ gridTemplateColumns: "repeat(auto-fill,18rem)" }}
@@ -67,7 +67,20 @@ const CallForApplicationApply = () => {
           ))}
         </div>
       ) : (
-        <>NON CI SONO CALL FOR APPLICATIONS</>
+        <Container className="mt-5 d-flex justify-content-center align-items-center">
+          <Alert
+            variant="warning"
+            className="custom-alert"
+            style={{ width: "400px" }}
+          >
+            <Alert.Heading className="text-center">
+              Non ci sono ancora Bandi di concorso.
+            </Alert.Heading>
+            <p className="text-center">
+              Aspetta che venga pubblicato un Bando prima di poter partecipare!
+            </p>
+          </Alert>
+        </Container>
       )}
     </div>
   );

@@ -18,7 +18,6 @@ import com.ssdexam.SSDApp.service.StudentService;
 import com.ssdexam.SSDApp.util.TokenUtil;
 
 @RestController
-@CrossOrigin(origins ="http://127.0.0.1:80", allowCredentials="true")
 @RequestMapping("/api/student")
 public class StudentController {
 

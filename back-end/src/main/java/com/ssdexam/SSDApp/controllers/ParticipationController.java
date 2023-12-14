@@ -22,7 +22,6 @@ import com.ssdexam.SSDApp.service.StudentService;
 import com.ssdexam.SSDApp.util.TokenUtil;
 
 @RestController
-@CrossOrigin(origins ="http://127.0.0.1:80", allowCredentials="true")
 @RequestMapping("/api/participations")
 public class ParticipationController{
 	//TODO RICAVARE DAL JWT CHE E' STATO INVIATO 'UTENTE CORRISPONDENTE ACCEDENDO AL DB E CREANDO PRATICAMENTE UN USERCONTROLLER E UN USERSERVICE!!!! 

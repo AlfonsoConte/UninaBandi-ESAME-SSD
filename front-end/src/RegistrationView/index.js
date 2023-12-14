@@ -89,6 +89,7 @@ const RegistrationView = () => {
     } else return true;
   };
 
+
   const checkMatricola = () => {
     const regex = /^[A-Z][0-9]{8}$/;
 
@@ -134,11 +135,7 @@ const RegistrationView = () => {
 
   const RegisterUser = () => {
     
-    if (user.badgeNumber === "") {
-      setUser({ ...user, badgeNumber: "0000000000" });
-    } else if (user.matricola === "") {
-      setUser({ ...user, matricola: "M00000000" });
-    }
+   
 
     console.log(user);
 
@@ -284,7 +281,7 @@ const RegistrationView = () => {
                     <DropdownButton
                       title={user.role}
                       id="dropdown-menu-align-right"
-                      onSelect={(e) => setUser({ ...user, ["role"]: e })}
+                      onSelect={(e) => {setUser({ ...user, ["role"]: e })} }
                       className="mb-3"
                     >
                       <Dropdown.Item eventKey="Studente">
