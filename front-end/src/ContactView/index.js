@@ -12,7 +12,7 @@ const ContactView = (prop) => {
         className="d-flex align-items-center justify-content-center"
         style={{
           minHeight: "100vh",
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.83)),url(${process.env.PUBLIC_URL}/federico-background.jpg)`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.83)),url(${process.env.PUBLIC_URL}/federico-background.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "#ffffff",

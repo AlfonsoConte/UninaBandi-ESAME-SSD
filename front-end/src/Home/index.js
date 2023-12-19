@@ -68,7 +68,7 @@ const HomePage = (prop) => {
       <Container
         className="my-5"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(${process.env.PUBLIC_URL}/federico-background.jpg)`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(${process.env.PUBLIC_URL}/federico-background.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

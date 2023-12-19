@@ -4,9 +4,7 @@ services:
     build:
       context: ./back-end
       dockerfile: Dockerfile
-    ports:
-      - 8081:8081
-    restart: unless-stopped
+    restart: on-failure
     environment:
       DB_URL: jdbc:mysql://mysql/ssd_db
       DB_USERNAME: ${MYSQL_USER}
@@ -17,9 +15,7 @@ services:
     build:
       context: ./Admin-back-end
       dockerfile: Dockerfile
-    ports:
-      - 8082:8082
-    restart: unless-stopped
+    restart: on-failure
     environment:
       DB_URL: jdbc:mysql://mysql/ssd_db
       DB_USERNAME: ${MYSQL_USER}
@@ -31,7 +27,7 @@ services:
     build:
       context: ./front-end  
       dockerfile: Dockerfile
-    restart: unless-stopped
+    restart: on-failure
     ports:
       - 80:80
       - 443:443
@@ -44,13 +40,11 @@ services:
   vault:
     hostname: vault
     container_name: vault
-    restart: unless-stopped
+    restart: on-failure
     image: vault:1.13.3
     environment:
       VAULT_ADDR: "http://0.0.0.0:8200"
       VAULT_API_ADDR: "http://0.0.0.0:8200"
-    ports:
-      - "8200:8200"
     volumes:
       - ./vault/config:/vault/config
       - ./vault/policies:/vault/policies
@@ -75,7 +69,7 @@ services:
   keycloak:
     image: jboss/keycloak:15.0.2
     container_name: mykeycloak
-    restart: unless-stopped
+    restart: on-failure
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
@@ -95,12 +89,10 @@ services:
       - ./keycloak-theme/messages_en.properties:/opt/jboss/keycloak/themes/base/login/messages/messages_en.properties
     depends_on:
       - mysql
-    ports:
-      - "8080:8080"
   mysql:
     image: mysql:8.0.28
     container_name: mysql
-    restart: unless-stopped
+    restart: on-failure
     command: --lower_case_table_names=1
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
